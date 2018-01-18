@@ -1,6 +1,6 @@
 # angular_google_maps
 
-A library for Dart developers.
+An Angular component for Google maps
 
 Created from templates made available by Stagehand under a BSD-style
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
@@ -9,14 +9,29 @@ Created from templates made available by Stagehand under a BSD-style
 
 A simple usage example:
 
-    import 'package:angular_google_maps/angular_google_maps.dart';
+```dart
+import 'package:angular/angular.dart';
+import 'package:angular_google_maps/angular_google_maps.dart';
 
-    main() {
-      var awesome = new Awesome();
-    }
+main() async {
+  await loadGoogleMaps("API_KEY");
+  bootstrap(AppComponent);
+}
 
-## Features and bugs
+```
+```html
+<google-map
+           style="width: 100%; height: 100%;"
+           lat="48.8651651" 
+           lng="2.3451825" 
+           zoom="3" 
+           (load)="onMapLoad(\$event)"></google-map>                  
+``` 
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+```dart
+void onMapLoaded(GMap map) {
+  ...
+}
+```
 
-[tracker]: http://example.com/issues/replaceme
+    
