@@ -10,12 +10,17 @@ import 'package:google_maps/google_maps.dart';
 class GoogleMapComponent implements OnInit, OnDestroy {
   final _loadController = new StreamController<GMap>();
   final HtmlElement element;
-  final _mapOptions = new MapOptions()
+  MapOptions _mapOptions = new MapOptions()
     ..zoom = 8
     ..center = new LatLng(48.8651651, 2.3451825);
   GMap _map;
 
   GoogleMapComponent(this.element);
+
+  @Input()
+  void set mapOptions(MapOptions options) {
+    _mapOptions = options;
+  }
 
   GMap get map => _map;
 
@@ -37,6 +42,26 @@ class GoogleMapComponent implements OnInit, OnDestroy {
   @Input("zoom")
   void set zoom(value) {
     _mapOptions.zoom = _safeNum(value) ?? 8;
+  }
+
+  @Input()
+  void set styles(List<MapTypeStyle> values) {
+    _mapOptions.styles = values;
+  }
+
+  @Input()
+  void set disableDefaultUI(bool val) {
+    _mapOptions.disableDefaultUI = val;
+  }
+
+  @Input()
+  void set mapTypeControl(bool val) {
+    _mapOptions.mapTypeControl = val;
+  }
+
+  @Input()
+  void set streetViewControl(bool val) {
+    _mapOptions.streetViewControl = val;
   }
 
   @Output()

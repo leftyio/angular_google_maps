@@ -9,9 +9,9 @@ environment:
 
 dependencies:
   angular: ">=4.0.0 <5.0.0"
-  google_maps: 3.2.2
-  dart_browser_loader: 0.0.3
-  google_maps_markerclusterer: 0.1.0
+  google_maps: ">=3.2.2 <4.0.0"
+  dart_browser_loader: ">=0.0.3 <0.1.0"
+  google_maps_markerclusterer: ">=0.1.0 <1.0.0"
 
 dev_dependencies:
   browser: ^0.10.0
@@ -19,11 +19,11 @@ dev_dependencies:
 
 transformers:
 ### (default) configuration if this package should be used as a library (import) or if the app should be execute as Dart in Dartium
-#- angular
+- angular
 ### configuration if example web folder should be compiled to js
-- angular:
-    entry_points: example/main.dart
-- dart_to_js_script_rewriter
+#- angular:
+#    entry_points: example/main.dart
+#- dart_to_js_script_rewriter
 
 web:
   compiler:
