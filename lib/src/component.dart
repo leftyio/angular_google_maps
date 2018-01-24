@@ -20,6 +20,9 @@ class GoogleMapComponent implements OnInit, OnDestroy {
   @Input()
   void set mapOptions(MapOptions options) {
     _mapOptions = options;
+    if (_map != null && options != null) {
+      _map.options = _mapOptions;
+    }
   }
 
   GMap get map => _map;
