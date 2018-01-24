@@ -10,7 +10,7 @@ import 'package:google_maps/google_maps.dart';
 class GoogleMapComponent implements OnInit, OnDestroy {
   final _loadController = new StreamController<GMap>();
   final HtmlElement element;
-  MapOptions _mapOptions = new MapOptions()
+  MapOptions _options = new MapOptions()
     ..zoom = 8
     ..center = new LatLng(48.8651651, 2.3451825);
   GMap _map;
@@ -18,10 +18,10 @@ class GoogleMapComponent implements OnInit, OnDestroy {
   GoogleMapComponent(this.element);
 
   @Input()
-  void set mapOptions(MapOptions options) {
-    _mapOptions = options;
+  void set options(MapOptions options) {
+    _options = options;
     if (_map != null && options != null) {
-      _map.options = _mapOptions;
+      _map.options = _options;
     }
   }
 
@@ -30,41 +30,41 @@ class GoogleMapComponent implements OnInit, OnDestroy {
   /// Latitude
   @Input("lat")
   void set lat(value) {
-    num lng = _mapOptions.center?.lng ?? 0;
-    _mapOptions.center = new LatLng(_safeNum(value), lng);
+    num lng = _options.center?.lng ?? 0;
+    _options.center = new LatLng(_safeNum(value), lng);
   }
 
   /// Longitude
   @Input("lng")
   void set lng(value) {
-    num lat = _mapOptions.center?.lat ?? 0;
-    _mapOptions.center = new LatLng(lat, _safeNum(value));
+    num lat = _options.center?.lat ?? 0;
+    _options.center = new LatLng(lat, _safeNum(value));
   }
 
   /// Zoom
   @Input("zoom")
   void set zoom(value) {
-    _mapOptions.zoom = _safeNum(value) ?? 8;
+    _options.zoom = _safeNum(value) ?? 8;
   }
 
   @Input()
   void set styles(List<MapTypeStyle> values) {
-    _mapOptions.styles = values;
+    _options.styles = values;
   }
 
   @Input()
   void set disableDefaultUI(bool val) {
-    _mapOptions.disableDefaultUI = val;
+    _options.disableDefaultUI = val;
   }
 
   @Input()
   void set mapTypeControl(bool val) {
-    _mapOptions.mapTypeControl = val;
+    _options.mapTypeControl = val;
   }
 
   @Input()
   void set streetViewControl(bool val) {
-    _mapOptions.streetViewControl = val;
+    _options.streetViewControl = val;
   }
 
   @Output()
@@ -72,7 +72,7 @@ class GoogleMapComponent implements OnInit, OnDestroy {
 
   @override
   Future<Null> ngOnInit() async {
-    _map = new GMap(element, _mapOptions);
+    _map = new GMap(element, _options);
     _loadController.add(_map);
   }
 
