@@ -4,7 +4,7 @@ import "package:dart_browser_loader/dart_browser_loader.dart";
 
 Future<ScriptElement> loadGoogleMaps(String apiKey,
     {Iterable<String> libraries = const []}) {
-  String url = "http://maps.googleapis.com/maps/api/js?key=$apiKey";
+  String url = "//maps.googleapis.com/maps/api/js?key=$apiKey";
   if (libraries.isNotEmpty) {
     url += "&libraries=${libraries.join(",")}";
   }
@@ -13,7 +13,7 @@ Future<ScriptElement> loadGoogleMaps(String apiKey,
 
 Future<ScriptElement> loadMarkerClusterer() {
   return loadScript(
-      "https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.min.js",
+      "//cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.min.js",
       id: "jssdk-markerclusterer",
       isAsync: true,
       isDefer: true);

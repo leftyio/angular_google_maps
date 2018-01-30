@@ -17,7 +17,7 @@ class GoogleMapComponent implements OnInit, OnDestroy {
 
   GoogleMapComponent(this.element);
 
-  @Input()
+  @Input("options")
   void set options(MapOptions options) {
     _options = options;
     if (_map != null && options != null) {
@@ -72,6 +72,7 @@ class GoogleMapComponent implements OnInit, OnDestroy {
 
   @override
   Future<Null> ngOnInit() async {
+    print(_options);
     _map = new GMap(element, _options);
     _loadController.add(_map);
   }

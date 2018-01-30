@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.3
+
+- fix load map on https
+
 ## 0.0.2+1
 - rename `mapOptions` to `options`
 
