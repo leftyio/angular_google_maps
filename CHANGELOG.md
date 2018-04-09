@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.4
+
+- support angular 5
+
 ## 0.0.3
 
 - fix load map on https
