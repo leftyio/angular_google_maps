@@ -2,6 +2,7 @@
 
 ## 0.0.4
 
+- dart 2 stable
 - support angular 5
 
 ## 0.0.3

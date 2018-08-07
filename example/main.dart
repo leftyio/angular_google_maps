@@ -3,7 +3,7 @@ import 'package:angular_google_maps/angular_google_maps.dart';
 
 main() async {
   await loadGoogleMaps("API_KEY");
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent);
 }
 
 @Component(
