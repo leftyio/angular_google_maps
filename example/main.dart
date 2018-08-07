@@ -3,7 +3,7 @@ import 'package:angular_google_maps/angular_google_maps.dart';
 
 main() async {
   await loadGoogleMaps("API_KEY");
-  bootstrap(AppComponent);
+  bootstrapStatic(AppComponent);
 }
 
 @Component(
@@ -13,7 +13,7 @@ main() async {
         lat="-28.024" lng="140.887" zoom="3" (load)="onMapLoad(\$event)"></google-map>
                  ''',
     directives: const [GoogleMapComponent],
-    pipes: const [COMMON_PIPES])
+    pipes: const [commonPipes])
 class AppComponent {
   List<LatLng> locations = [
     new LatLng(-31.563910, 147.154312),
@@ -52,4 +52,3 @@ class AppComponent {
     });
   }
 }
-
